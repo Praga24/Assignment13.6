@@ -1,0 +1,28 @@
+1. What kind of data Hbase can store.
+Hbase can manage structured and semi or even unstructured data.
+
+
+2. Explain the important terms in hbase architecture.
+The important terms in HBase architecture are:
+*Region servers serve data for reads and writes.
+*Regions are assigned to the Regoin Servers.A region server can serve about 1,000 regions.
+*HBase Master process handles the Region assignment, DDL (create, delete tables) operations.
+*Zookeeper maintains a live cluster state.
+*The Hadoop DataNode stores the data that the Region Server is managing.
+*The NameNode maintains metadata information for all the physical data blocks.
+
+
+3. What is zookeeper? What happens if the zookeeper service is stopped.
+HBase uses ZooKeeper as a distributed coordination service to maintain server state in the cluster.
+Zookeeper maintains which servers are alive and available, and provides server failure notification. 
+If Zookeeper service is stopped HBase may go down as it relies on Zookeeper.
+
+
+4. Is it necessary that region server be located on all DataNodes?
+Yes.For best performance and functioning, it is necessary.
+
+
+5. How will you implement joins in Hbase?
+ The techniques to implement joins in Hbase are:
+*Denormalizing the data and write into HBase
+*Loading the HBase tables into hive and perform joins or write Mapreduce code.
